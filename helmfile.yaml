@@ -1,0 +1,30 @@
+repositories:
+  - name: argo
+    url: https://argoproj.github.io/argo-helm
+
+releases:
+  - name: argocd
+    chart: argo/argo-cd
+    namespace: argo
+    createNamespace: true
+    secrets:
+      - secret.enc.yaml
+    values:
+      - redis-ha:
+          enabled: false
+        controller:
+          replicas: 1
+        server:
+          autoscaling:
+            enabled: false
+            minReplicas: 1
+        repoServer:
+          autoscaling:
+            enabled: false
+            minReplicas: 1
+        applicationSet:
+          replicaCount: 1
+        configs:
+          params:
+            'server.insecure': true
+
