@@ -10,6 +10,7 @@ releases:
     secrets:
       - secret.enc.yaml
     values:
+      - ./values/helm-secret-pulgin.yaml
       - redis-ha:
           enabled: false
         controller:
@@ -18,6 +19,12 @@ releases:
           autoscaling:
             enabled: false
             minReplicas: 1
+          config:
+            helm.valuesFileSchemes: >-
+              secrets+gpg-import, secrets+gpg-import-kubernetes,
+              secrets+age-import, secrets+age-import-kubernetes,
+              secrets,secrets+literal,
+              https
         repoServer:
           autoscaling:
             enabled: false
@@ -25,6 +32,8 @@ releases:
         applicationSet:
           replicaCount: 1
         configs:
+          cm:
+            'kustomize.buildOptions': --enable-helm
           params:
             'server.insecure': true
 
