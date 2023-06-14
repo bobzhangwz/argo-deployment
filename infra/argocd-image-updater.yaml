@@ -10,13 +10,13 @@ spec:
     repoURL: https://argoproj.github.io/argo-helm
     helm:
       releaseName: argocd-image-updater
-      values:
-        - config:
-            argocd:
-              grpcWeb: false
-              serverAddress: "http://argocd.argo"
-              insecure: true
-              plaintext: true
+      values: |
+        config:
+          argocd:
+            grpcWeb: false
+            serverAddress: "http://argocd.argo"
+            insecure: true
+            plaintext: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argo
