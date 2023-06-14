@@ -1,9 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: base_infra
+  name: base-infra
   namespace: argo
 spec:
+  project: default
   source:
     repoURL: https://github.com/bobzhangwz/argo-deployment.git
     targetRevision: HEAD
@@ -12,3 +13,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argo
