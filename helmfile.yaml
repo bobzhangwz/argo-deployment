@@ -10,7 +10,7 @@ releases:
     secrets:
       - secret.enc.yaml
     values:
-      - ./values/helm-secret-pulgin.yaml
+      # - ./values/helm-secret-pulgin.yaml
       - redis-ha:
           enabled: false
         controller:
