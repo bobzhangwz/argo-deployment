@@ -1,7 +1,7 @@
 kind: AppProject
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: projectA
+  name: projecta
   namespace: argo
 spec:
   permitOnlyProjectScopedClusters: true
@@ -12,28 +12,28 @@ spec:
   - name: read-only
     description: Read-only privileges to project A
     policies:
-    - p, proj:projectA:read-only, applications, get, projectA/*, allow
+    - p, proj:projecta:read-only, applications, get, projecta/*, allow
     groups:
-    - projectA-readonly
+    - projecta-readonly
 
   - name: admin
-    description: Admin privileges to projectA
+    description: Admin privileges to projecta
     policies:
-      - p, proj:projectA:read-only, applications, get, projectA/*, allow
-      - p, proj:projectA:read-only, applications, get, projectA/*, allow
-      - p, proj:projectA:read-only, applications, get, projectA/*, allow
+      - p, proj:projecta:read-only, applications, get, projecta/*, allow
+      - p, proj:projecta:read-only, applications, get, projecta/*, allow
+      - p, proj:projecta:read-only, applications, get, projecta/*, allow
 
-      - p, proj:projectA:admin, applications, create, projectA/*, allow
-      - p, proj:projectA:admin, applications, update, projectA/*, allow
-      - p, proj:projectA:admin, applications, delete, projectA/*, allow
-      - p, proj:projectA:admin, applications, sync, projectA/*, allow
-      - p, proj:projectA:admin, applications, override, projectA/*, allow
-      - p, proj:projectA:admin, applications, action/*, projectA/*, allow
+      - p, proj:projecta:admin, applications, create, projecta/*, allow
+      - p, proj:projecta:admin, applications, update, projecta/*, allow
+      - p, proj:projecta:admin, applications, delete, projecta/*, allow
+      - p, proj:projecta:admin, applications, sync, projecta/*, allow
+      - p, proj:projecta:admin, applications, override, projecta/*, allow
+      - p, proj:projecta:admin, applications, action/*, projecta/*, allow
 
-      - p, proj:projectA:admin, applicationsets, get, projectA/*, allow
-      - p, proj:projectA:admin, applicationsets, create, projectA/*, allow
-      - p, proj:projectA:admin, applicationsets, update, projectA/*, allow
-      - p, proj:projectA:admin, applicationsets, delete, projectA/*, allow
-      - p, proj:projectA:admin, exec, create, projectA/*, allow
+      - p, proj:projecta:admin, applicationsets, get, projecta/*, allow
+      - p, proj:projecta:admin, applicationsets, create, projecta/*, allow
+      - p, proj:projecta:admin, applicationsets, update, projecta/*, allow
+      - p, proj:projecta:admin, applicationsets, delete, projecta/*, allow
+      - p, proj:projecta:admin, exec, create, projecta/*, allow
     groups:
-    - projectA-admin
+    - projecta-admin
