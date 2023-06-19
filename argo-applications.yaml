@@ -5,10 +5,13 @@ metadata:
   namespace: argo
 spec:
   project: default
-  source:
-    repoURL: https://github.com/bobzhangwz/argo-deployment.git
-    targetRevision: HEAD
-    path: infra
+  sources:
+    - repoURL: https://github.com/bobzhangwz/argo-deployment.git
+      targetRevision: HEAD
+      path: infra
+    - repoURL: https://github.com/bobzhangwz/argo-deployment.git
+      targetRevision: HEAD
+      path: app
   syncPolicy:
     automated:
       prune: true
