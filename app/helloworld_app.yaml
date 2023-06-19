@@ -3,7 +3,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helloworld_app
+  name: helloworld-app
   namespace: argo
   annotations:
     argocd-image-updater.argoproj.io/image-list: helloworld_image=160071257600.dkr.ecr.ap-northeast-1.amazonaws.com/static_web
