@@ -34,6 +34,11 @@ releases:
         configs:
           cm:
             'kustomize.buildOptions': --enable-helm
+            'accounts.alice': apiKey, login
+            'accounts.alice.enabled': "true"
           params:
             'server.insecure': true
+          rbac:
+            'policy.csv': |
+              g, alice, proj:projecta:admin
 
