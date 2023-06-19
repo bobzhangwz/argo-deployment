@@ -21,13 +21,13 @@ metadata:
     # https://argocd-image-updater.readthedocs.io/en/stable/configuration/registries/
     argocd-image-updater.argoproj.io/helloworld_image.pull-secret: pullsecret:argo/aws-rds-secret
 spec:
-  project: projecta
+  project: default
   source:
     path: deployments/prod
     repoURL: https://github.com/bobzhangwz/static-web
     targetRevision: master
   destination:
-    server: in_cluster
+    server: "https://kubernetes.default.svc"
     namespace: helloworld
   syncPolicy:
     automated:
