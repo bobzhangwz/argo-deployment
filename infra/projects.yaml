@@ -12,6 +12,7 @@ spec:
   sourceNamespaces:
     - namespace-one
     - argo
+    - helloworld
   destinations:
   - namespace: helloworld
     server: https://kubernetes.default.svc
