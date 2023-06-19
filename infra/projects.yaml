@@ -3,6 +3,8 @@ apiVersion: argoproj.io/v1alpha1
 metadata:
   name: projecta
   namespace: argo
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   permitOnlyProjectScopedClusters: true
   sourceRepos:
@@ -10,6 +12,9 @@ spec:
   sourceNamespaces:
     - namespace-one
     - argo
+  destinations:
+  - namespace: helloworld
+    server: https://kubernetes.default.svc
   roles:
   # A role which provides read-only access to all applications in the project
   - name: read-only
