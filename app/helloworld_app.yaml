@@ -26,7 +26,7 @@ spec:
     targetRevision: master
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: helloworld
+    namespace: argo
   syncPolicy:
     automated:
       prune: true
