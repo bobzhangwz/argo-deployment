@@ -14,8 +14,9 @@ spec:
     - argo
     - helloworld
   destinations:
-  - namespace: '*'
-    server: '*'
+  - namespace: helloworld
+    server: https://kubernetes.default.svc
+    name: in-cluster
 
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
