@@ -4,7 +4,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: helloworld-app
-  namespace: argo
+  namespace: helloworld
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
