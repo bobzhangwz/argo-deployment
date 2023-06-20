@@ -4,13 +4,14 @@ repositories:
 
 releases:
   - name: argocd
+    version: 5.36.3
     chart: argo/argo-cd
     namespace: argo
     createNamespace: true
     secrets:
       - secret.enc.yaml
     values:
-      # - ./values/helm-secret-pulgin.yaml
+      - ./values/helm-secret-pulgin.yaml
       - redis-ha:
           enabled: false
         controller:
@@ -33,7 +34,7 @@ releases:
           replicaCount: 1
         configs:
           cm:
-            'kustomize.buildOptions': --enable-helm
+            'kustomize.buildOptions': --enable-helm --enable-alpha-plugins --enable-exec
             'accounts.alice': apiKey, login
             'accounts.alice.enabled': "true"
           params:
