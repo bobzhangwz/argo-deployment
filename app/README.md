@@ -1,4 +1,6 @@
 ```bash
+kubectl delete secret aws-rds-secret -n argo
+# create a secret in helloworld
 kubectl create -n argo secret docker-registry aws-rds-secret \
   --docker-username AWS \
   --docker-password "$(aws --region ap-northeast-1 ecr get-login-password)" \
