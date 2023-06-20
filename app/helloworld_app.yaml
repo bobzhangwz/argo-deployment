@@ -21,7 +21,7 @@ metadata:
     # https://argocd-image-updater.readthedocs.io/en/stable/configuration/registries/
     argocd-image-updater.argoproj.io/helloworld_image.pull-secret: pullsecret:argo/aws-rds-secret
 spec:
-  project: default
+  project: projecta
   source:
     path: deployments/prod
     repoURL: https://github.com/bobzhangwz/static-web
