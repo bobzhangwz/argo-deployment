@@ -1,3 +1,11 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: helloworld
+
+---
+
 kind: AppProject
 apiVersion: argoproj.io/v1alpha1
 metadata:

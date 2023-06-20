@@ -6,4 +6,3 @@ commonLabels:
   type: infra
 resources:
  - ./argocd-image-updater.yaml
- - ./projects.yaml
