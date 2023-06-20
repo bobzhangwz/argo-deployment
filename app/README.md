@@ -1,3 +1,19 @@
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: static-web-repo
+  namespace: argo
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://github.com/bobzhangwz/static-web
+  password: 
+  username: 
+```
+
 ```bash
 kubectl delete secret aws-rds-secret -n argo
 # create a secret in helloworld
