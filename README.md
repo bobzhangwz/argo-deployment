@@ -29,6 +29,7 @@ SOPS_AGE_KEY_FILE=./key.txt helmfile apply --skip-diff-on-install
 
 # create a secret in helloworld
 # https://github.com/argoproj-labs/argocd-image-updater/issues/112
+# kubectl delete secret aws-rds-secret -n argo
 kubectl create -n argo secret docker-registry aws-rds-secret \
   --docker-username AWS \
   --docker-password "$(aws --region ap-northeast-1 ecr get-login-password)" \
