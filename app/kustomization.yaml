@@ -5,7 +5,8 @@ metadata:
 commonLabels:
   type: app
 resources:
-  - ./helloworld_basic.yaml
-  - ./helloworld_app.yaml
+  # - ./helloworld_basic.yaml
+  # - ./helloworld_app.yaml
+  - ./backstage_app.yaml
 generators:
   - ./secret-generator.yaml

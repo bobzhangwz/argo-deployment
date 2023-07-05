@@ -3,32 +3,31 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helloworld-app
-  namespace: argo
+  name: backstage-app
+  namespace: backstage
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd-image-updater.argoproj.io/image-list: helloworld_image=160071257600.dkr.ecr.ap-northeast-1.amazonaws.com/static_web
+    argocd-image-updater.argoproj.io/image-list: backstage_img=160071257600.dkr.ecr.ap-northeast-1.amazonaws.com/backstage
     argocd-image-updater.argoproj.io/write-back-target: kustomization
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argo/static-web-repo
     # https://argocd-image-updater.readthedocs.io/en/stable/basics/update-methods/
     argocd-image-updater.argoproj.io/git-branch: master:image-updater{{range .Images}}-{{.Name}}-{{.NewTag}}{{end}}
 
-    argocd-image-updater.argoproj.io/helloworld_image.kustomize.image-name: 160071257600.dkr.ecr.ap-northeast-1.amazonaws.com/static_web
+    argocd-image-updater.argoproj.io/backstage_img.kustomize.image-name: 160071257600.dkr.ecr.ap-northeast-1.amazonaws.com/backstage
     # argocd-image-updater.argoproj.io/argocd.force-update: true
-    argocd-image-updater.argoproj.io/helloworld_image.update-strategy: latest
-    argocd-image-updater.argoproj.io/helloworld_image.ignore-tags: regexp:^DEV$
+    argocd-image-updater.argoproj.io/backstage_img.update-strategy: latest
+    argocd-image-updater.argoproj.io/backstage_img.ignore-tags: regexp:^DEV$
     # https://argocd-image-updater.readthedocs.io/en/stable/configuration/registries/
-    argocd-image-updater.argoproj.io/helloworld_image.pull-secret: pullsecret:argo/aws-rds-secret
+    argocd-image-updater.argoproj.io/backstage_img.pull-secret: pullsecret:argo/aws-rds-secret
 spec:
-  project: projecta
   source:
-    path: deployments/prod
-    repoURL: https://github.com/bobzhangwz/static-web
+    path: deployments/base/
+    repoURL: https://github.com/bobzhangwz/backstage-test
     targetRevision: master
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: helloworld
+    namespace: backstage
   syncPolicy:
     automated:
       prune: true
