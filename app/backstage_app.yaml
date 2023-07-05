@@ -3,7 +3,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  project: default
   name: backstage-app
   namespace: argo
   finalizers:
@@ -22,6 +21,7 @@ metadata:
     # https://argocd-image-updater.readthedocs.io/en/stable/configuration/registries/
     argocd-image-updater.argoproj.io/backstage_img.pull-secret: pullsecret:argo/aws-rds-secret
 spec:
+  project: default
   source:
     path: deployments/base/
     repoURL: https://github.com/bobzhangwz/backstage-test
