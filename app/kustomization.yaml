@@ -4,9 +4,9 @@ metadata:
   name: infrastructure
 commonLabels:
   type: app
-resources:
+resources: []
   # - ./helloworld_basic.yaml
   # - ./helloworld_app.yaml
-  - ./backstage_app.yaml
+  # - ./backstage_app.yaml
 generators:
   - ./secret-generator.yaml
